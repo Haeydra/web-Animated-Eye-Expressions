@@ -1,0 +1,74 @@
+/* Genel stil */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #1f2932;
+}
+
+.eyes {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.eye {
+    width: 170px;
+    height: 145px;
+    background: #b7b5b5b6;
+    display: inline-block;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    animation: blink 3s infinite;
+    border-radius: 50%;
+    transition: transform 5s ease, clip-path 5s ease; /* Şekil değişiklikleri için geçiş süresi */
+}
+
+@keyframes blink {
+    0%, 100% {
+        transform: scale(1, 0.05);
+    }
+    5%, 95% {
+        transform: scale(1, 1);
+    }
+}
+
+/* Sinirli bakış - çatık gözler */
+.eye.angry {
+    clip-path: polygon(10% 0%, 90% 0%, 100% 60%, 80% 100%, 20% 100%, 0% 60%); /* Çatık göz şekli */
+    transform: scale(1.35, 1); /* Gözleri biraz daha genişleterek sinirli görünüm */
+}
+
+/* Şaşkın bakış - yuvarlak gözler */
+.eye.surprised {
+    clip-path: circle(50% at 50% 50%); /* Tam dairesel göz şekli */
+    transform: scale(1.2, 1.2); /* Şaşkın bakış için biraz daha büyütme */
+}
+
+.ball {
+    width: 54px;
+    height: 54px;
+    background: #000000d4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 12px solid #3684bce3;
+    transition: border-color 2s ease;
+}
+
+/* Sinirli bakış - kırmızı göz bebekleri */
+.ball.angry {
+    border-color: #d20c0c;
+}
+
+/* Şaşkın bakış - yeşil göz bebekleri */
+.ball.surprised {
+    border-color: #00ff66;
+}
